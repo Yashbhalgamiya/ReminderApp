@@ -3,13 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/lightblue"
     android:layout_height="match_parent"
-    tools:context=".splashActivity">
+    tools:context=".EducationActivity">
 
-    <ImageView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eduRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/data_flair" />
+        android:layout_height="match_parent" />
+
+
+
 
 </RelativeLayout>
