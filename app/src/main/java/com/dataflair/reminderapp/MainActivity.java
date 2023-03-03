@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 public class MainActivity extends AppCompatActivity {
 
     Button Education,Finance,Health,Other,Daily,Event;
+    FloatingActionButton create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
         Finance=findViewById(R.id.finance_btn);
         Daily=findViewById(R.id.routine_btn);
         Other=findViewById(R.id.other_btn);
+        create=findViewById(R.id.add_btn);
+
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ReminderActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Education.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,16 +81,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void openEducation(){
         Intent intent=new Intent(this,EducationActivity.class);
+        startActivity(intent);
     }
 
-    public void openFinance(){}
+    public void openFinance(){
+        Intent intent=new Intent(this,FinanceActivity.class);
+        startActivity(intent);
+    }
 
-    public void openEvent(){}
+    public void openEvent(){
+        Intent intent=new Intent(this,EventActivity.class);
+        startActivity(intent);
+    }
 
-    public void openOther(){}
+    public void openOther(){
+        Intent intent=new Intent(this,OtherActivity.class);
+        startActivity(intent);
+    }
 
-    public void openHealth(){}
+    public void openHealth(){
+        Intent intent=new Intent(this,HealthActivity.class);
+        startActivity(intent);
+    }
 
-    public void openDaily(){}
+    public void openDaily(){
+        Intent intent=new Intent(this,DailyActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ReminderApp</string>
+    <string name="prompt">Choose a Type</string>
+    <string-array name="type">
+        <item>Education</item>
+        <item>Health</item>
+        <item>Finance</item>
+        <item>Daily</item>
+        <item>Event</item>
+        <item>Others</item>
+    </string-array>
 </resources>

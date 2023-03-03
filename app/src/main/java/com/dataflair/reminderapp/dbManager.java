@@ -17,7 +17,7 @@ public class dbManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {                                           //sql query to insert data in sqllite
-        String query = "create table tbl_reminder(id integer primary key autoincrement,title text,date text,time text)";
+        String query = "create table tbl_reminder(id integer primary key autoincrement,title text,date text,time text,type text)";
         sqLiteDatabase.execSQL(query);
     }
 
@@ -30,13 +30,14 @@ public class dbManager extends SQLiteOpenHelper {
 
     }
 
-    public String addreminder(String title, String date, String time) {
+    public String addreminder(String title, String date, String time,String type) {
         SQLiteDatabase database = this.getReadableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", title);                                                          //Inserts  data into sqllite database
         contentValues.put("date", date);
         contentValues.put("time", time);
+        contentValues.put("type",type);
 
         float result = database.insert("tbl_reminder", null, contentValues);    //returns -1 if data successfully inserts into database
 

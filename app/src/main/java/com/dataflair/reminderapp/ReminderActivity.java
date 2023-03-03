@@ -10,9 +10,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -29,6 +32,8 @@ public class ReminderActivity extends AppCompatActivity {
     Button mSubmitbtn, mDatebtn, mTimebtn;
     EditText mTitledit;
     String timeTonotify;
+    Spinner spn;
+    String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +44,24 @@ public class ReminderActivity extends AppCompatActivity {
         mDatebtn = (Button) findViewById(R.id.btnDate);                                             //assigned all the material reference to get and set data
         mTimebtn = (Button) findViewById(R.id.btnTime);
         mSubmitbtn = (Button) findViewById(R.id.btnSbumit);
+        spn=findViewById(R.id.spn);
 
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.type, android.R.layout.simple_dropdown_item_1line);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spn.setAdapter(adapter);
 
+        spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                type=adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(getApplicationContext(),type,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         mTimebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +101,7 @@ public class ReminderActivity extends AppCompatActivity {
 
 
     private void processinsert(String title, String date, String time) {
-        String result = new dbManager(this).addreminder(title, date, time);                  //inserts the title,date,time into sql lite database
+        String result = new dbManager(this).addreminder(title, date, time,type);                  //inserts the title,date,time into sql lite database
         setAlarm(title, date, time);                                                                //calls the set alarm method to set alarm
         mTitledit.setText("");
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
@@ -163,7 +184,9 @@ public class ReminderActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Intent intentBack = new Intent(getApplicationContext(), MainActivity.class);                //this intent will be called once the setting alaram is completes
+        //Intent intentBack = new Intent(getApplicationContext(), MainActivity.class);                //this intent will be called once the setting alaram is completes
+
+        Intent intentBack = new Intent(getApplicationContext(), MainActivity.class);
         intentBack.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intentBack);                                                                  //navigates from adding reminder activity ot mainactivity
 
