@@ -52,6 +52,7 @@ public class dbManager extends SQLiteOpenHelper {
     public Cursor readallreminders() {
         SQLiteDatabase database = this.getWritableDatabase();
         String query = "select * from tbl_reminder order by id desc";                               //Sql query to  retrieve  data from the database
+        //String query="select * from "+dbname+" WHERE type='Education'";
         Cursor cursor = database.rawQuery(query, null);
         return cursor;
     }

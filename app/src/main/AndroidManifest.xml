@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp">
         <activity
+            android:name=".HealthActivity"
+            android:exported="false" />
+        <activity
             android:name=".OtherActivity"
             android:exported="false" />
         <activity
@@ -21,12 +24,6 @@
             android:exported="false" />
         <activity
             android:name=".EventActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HealthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Health"
             android:exported="false" />
         <activity
             android:name=".EducationActivity"
