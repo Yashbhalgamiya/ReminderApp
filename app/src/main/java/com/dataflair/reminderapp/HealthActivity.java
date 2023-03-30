@@ -22,12 +22,11 @@ public class HealthActivity extends AppCompatActivity {
         health=findViewById(R.id.health);
         health.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        Cursor cursor=new dbManager(getApplicationContext()).readallreminders();
+        Cursor cursor=new dbManager(getApplicationContext()).readHealth();
         while (cursor.moveToNext()){
             Model model=new Model(cursor.getString(1),cursor.getString(2),cursor.getString(3));
             dataholder.add(model);
         }
-
         adapter=new myAdapter(dataholder);
         health.setAdapter(adapter);
     }

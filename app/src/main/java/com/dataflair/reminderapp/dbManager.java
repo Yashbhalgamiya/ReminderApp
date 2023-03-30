@@ -56,4 +56,46 @@ public class dbManager extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(query, null);
         return cursor;
     }
+
+    public Cursor readEducation() {
+        SQLiteDatabase database = this.getWritableDatabase();
+        String query = "select * from tbl_reminder where type='Education'";                               //Sql query to  retrieve  data from the database
+        //String query="select * from "+dbname+" WHERE type='Education'";
+        Cursor cursor = database.rawQuery(query, null);
+        return cursor;
+    }
+    public Cursor readFinance() {
+        SQLiteDatabase database = this.getWritableDatabase();
+        String query = "select * from tbl_reminder where type='Finance'";                               //Sql query to  retrieve  data from the database
+        //String query="select * from "+dbname+" WHERE type='Education'";
+        Cursor cursor = database.rawQuery(query, null);
+        return cursor;
+    }
+    public Cursor readHealth(){
+        SQLiteDatabase database=this.getWritableDatabase();
+        String query = "select * from tbl_reminder where type='Health'";
+        Cursor cursor=database.rawQuery(query,null);
+        return  cursor;
+    }
+
+    public Cursor readDaily(){
+        SQLiteDatabase database=this.getWritableDatabase();
+        String query = "select * from tbl_reminder where type='Daily'";
+        Cursor cursor=database.rawQuery(query,null);
+        return  cursor;
+    }
+
+    public Cursor readEvent(){
+        SQLiteDatabase database=this.getWritableDatabase();
+        String query = "select * from tbl_reminder where type='Event'";
+        Cursor cursor=database.rawQuery(query,null);
+        return  cursor;
+    }
+
+    public Cursor readOthers(){
+        SQLiteDatabase database=this.getWritableDatabase();
+        String query = "select * from tbl_reminder where type='Others'";
+        Cursor cursor=database.rawQuery(query,null);
+        return  cursor;
+    }
 }

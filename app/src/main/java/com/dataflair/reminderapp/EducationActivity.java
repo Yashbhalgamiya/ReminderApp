@@ -22,7 +22,7 @@ public class EducationActivity extends AppCompatActivity {
         eduRecyclerView=findViewById(R.id.eduRecyclerView);
         eduRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        Cursor cursor = new dbManager(getApplicationContext()).readallreminders();    //Cursor To Load data From the database
+        Cursor cursor = new dbManager(getApplicationContext()).readEducation();    //Cursor To Load data From the database
         //Cursor cursor = new dbManager.query();
 
         while (cursor.moveToNext()) {
