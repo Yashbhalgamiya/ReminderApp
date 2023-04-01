@@ -54,7 +54,7 @@ public class ReminderActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 type=adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(),type,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),type,Toast.LENGTH_SHORT).show();
             }
 
             @Override

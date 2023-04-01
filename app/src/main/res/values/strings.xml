@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ReminderApp</string>
+    <string name="app_name">Tick-Tick</string>
     <string name="prompt">Choose a Type</string>
     <string-array name="type">
         <item>Education</item>

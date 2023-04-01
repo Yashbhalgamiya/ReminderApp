@@ -12,4 +12,9 @@
     <color name="lightblack">#7C7878</color>
     <color name="lightblue">#6491B5</color>
 
+    <color name="blue">#2C3333</color>
+    <color name="blue1">#2E4F4F</color>
+    <color name="blue2">#0E8388</color>
+    <color name="blue3">#CBE4DE</color>
+
 </resources>
